@@ -1,4 +1,4 @@
-# AWS Two-Tier Flask Application
+# DeployHub - Continuous Delivery for Cloud Applications
 
 A production-style two-tier web application built using Flask and MySQL, containerized with Docker and deployed on AWS EC2. The project demonstrates modern DevOps practices including containerization, CI/CD automation, cloud deployment, and application monitoring.
 
