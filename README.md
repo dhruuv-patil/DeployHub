@@ -137,11 +137,6 @@ Through this project I gained practical experience in:
 
 **Dhruv Patil**
 
-Computer Engineering Student | AWS & Backend Enthusiast
-
-- GitHub: https://github.com/YOUR_USERNAME
-- LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN
-
 ## Disclaimer
 
 This project is intended for educational and learning purposes to demonstrate cloud deployment and DevOps concepts.
