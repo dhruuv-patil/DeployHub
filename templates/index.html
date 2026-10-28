@@ -1,230 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashant | Flask App 🚀</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: linear-gradient(160deg, #0C0D16, #1A1C2B);
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        /* Flex container for profile + content */
-        .container {
-            display: flex;
-            flex-direction: row;
-            max-width: 1050px;
-            width: 100%;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Left side: profile photo */
-        .profile-photo {
-            flex: 0 0 200px;
-            margin-right: 30px;
-        }
-
-        .profile-photo img {
-            width: 100%;
-            border-radius: 50%;
-            border: 3px solid #5599FF;
-            box-shadow: 0 4px 15px rgba(85, 153, 255, 0.5);
-        }
-
-        /* Right side: content */
-        .content {
-            flex: 1;
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #5599FF;
-            margin-bottom: 8px;
-        }
-
-        .header p {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 15px;
-        }
-
-        .about {
-            margin-bottom: 20px;
-            padding: 10px 15px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .about h2 {
-            font-size: 1.3rem;
-            color: #5599FF;
-            margin-bottom: 8px;
-        }
-
-        .about p {
-            font-size: 0.95rem;
-            color: #ddd;
-            line-height: 1.5;
-        }
-
-        .messages {
-            margin-bottom: 15px;
-            padding: 12px;
-            background: rgba(85, 153, 255, 0.08);
-            border: 1px solid rgba(85, 153, 255, 0.2);
-            border-radius: 12px;
-            max-height: 200px;
-            overflow-y: auto;
-            text-align: left;
-        }
-
-        .messages p {
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.07);
-            border-radius: 8px;
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid rgba(85, 153, 255, 0.3);
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        input[type="text"]:focus {
-            border-color: #5599FF;
-            box-shadow: 0 0 12px rgba(85, 153, 255, 0.6);
-            outline: none;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            background: #5599FF;
-            color: #ffffff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background: #417ad6;
-            box-shadow: 0 0 15px rgba(85, 153, 255, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* Responsive */
-        @media (max-width: 800px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .profile-photo {
-                margin-right: 0;
-                margin-bottom: 20px;
-                flex: 0 0 auto;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeployHub — Continuous Delivery for Cloud Applications</title>
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/logo.svg') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
-    <div class="container">
-        <!-- Profile photo -->
-        <div class="profile-photo">
-            <img src="1.png" alt="Prashant Photo">
+  <div class="app-container">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="brand-wrapper">
+        <span class="brand-name">DeployHub</span>
+        <span class="brand-tag mono">v1.0.0</span>
+      </div>
+
+      <div class="header-meta">
+        <span class="status-badge mono">Operational</span>
+        <a href="https://github.com/dhruuv-patil/DeployHub" target="_blank" rel="noopener noreferrer" class="btn-icon-link">
+          <svg height="14" width="14" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Telemetry Strip -->
+    <section class="telemetry-grid">
+      <div class="telemetry-cell">
+        <span class="telemetry-kicker mono">Tier 01 / App</span>
+        <span class="telemetry-title">Flask 2.2 & Python 3.9</span>
+        <span class="telemetry-detail mono">Port 5000 / HTTP Service</span>
+      </div>
+
+      <div class="telemetry-cell">
+        <span class="telemetry-kicker mono">Tier 02 / Data</span>
+        <span class="telemetry-title">MySQL 8.0 Engine</span>
+        <span class="telemetry-detail mono">Port 3306 / Persistent Volume</span>
+      </div>
+
+      <div class="telemetry-cell">
+        <span class="telemetry-kicker mono">Infrastructure</span>
+        <span class="telemetry-title">Docker Compose v2</span>
+        <span class="telemetry-detail mono">Isolated Bridge Network</span>
+      </div>
+
+      <div class="telemetry-cell">
+        <span class="telemetry-kicker mono">Automation</span>
+        <span class="telemetry-title">Jenkins & GitHub CI/CD</span>
+        <span class="telemetry-detail mono">Automated Build & Verify</span>
+      </div>
+    </section>
+
+    <!-- Workspace Grid -->
+    <div class="workspace-grid">
+      <!-- Main Feed -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Deployment Log Stream</h2>
+          <span class="panel-subtitle mono">MySQL Persistence</span>
         </div>
 
-        <!-- Content -->
-        <div class="content">
-            <div class="header">
-                <h1>Prashant Gohil | DevOps Enthusiast</h1>
-                <p>Student | Aspiring Cloud & DevOps Engineer</p>
-            </div>
+        <form id="messageForm">
+          <div class="input-row">
+            <input type="text" id="messageInput" name="new_message" class="text-input" placeholder="Enter deployment signal, log message, or note..." required maxlength="500" autocomplete="off">
+            <button type="submit" class="btn-solid">Post Log</button>
+          </div>
 
-            <div class="about">
-                <h2>About Me</h2>
-                <p>Hi, I'm <b>Prashant</b> 👋, a student and aspiring Cloud & DevOps engineer.</p>
-                <p style="margin-top:10px;">
-                    <b>Project:</b> I have deployed a 2-tier Flask application (Flask + MySQL) on AWS EC2 using Docker.  
-                    I used Docker Compose to manage both containers with volumes and a custom network.  
-                    The source code is hosted on GitHub, and Jenkins is integrated to set up a CI/CD pipeline for automated deployment.
-                </p>
-            </div>
+          <div class="preset-row">
+            <button type="button" class="preset-btn" data-text="Release v1.0.0 container deployment complete">Release v1.0.0</button>
+            <button type="button" class="preset-btn" data-text="Health check validation verified on endpoint /health">Healthcheck OK</button>
+            <button type="button" class="preset-btn" data-text="MySQL persistent volume synced and validated">Sync Storage</button>
+            <button type="button" class="preset-btn" data-text="Continuous delivery webhook triggered via GitHub">Trigger Webhook</button>
+          </div>
+        </form>
 
-            <div class="messages">
-                {% for message in messages %}
-                    <p>{{ message[0] }}</p>
-                {% endfor %}
-            </div>
-
-            <form id="messageForm">
-                <input type="text" name="new_message" placeholder="Type your message..." required>
-                <input type="submit" value="Send">
-            </form>
+        <div class="feed-toolbar">
+          <span id="feedCount" class="mono">{{ messages|length }} RECORDS</span>
+          <div class="action-links">
+            <button id="refreshBtn" class="text-btn">Refresh</button>
+            <button id="clearBtn" class="text-btn danger">Clear</button>
+          </div>
         </div>
+
+        <div class="feed-container" id="feedContainer">
+          {% if messages %}
+            {% for msg in messages %}
+              <div class="feed-row">
+                <div class="feed-row-meta">
+                  <span class="feed-tag mono">LOG</span>
+                  <span class="mono">{{ msg[1] if msg|length > 1 and msg[1] else 'Recent' }}</span>
+                </div>
+                <div class="feed-message">{{ msg[0] }}</div>
+              </div>
+            {% endfor %}
+          {% else %}
+            <div class="feed-row">
+              <div class="feed-message" style="color: var(--text-muted);">No deployment records logged yet.</div>
+            </div>
+          {% endif %}
+        </div>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="sidebar-stack">
+        <!-- System Specifications -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">Project Overview</h3>
+            <span class="panel-subtitle mono">Architecture</span>
+          </div>
+
+          <div class="profile-section">
+            <div>
+              <div class="author-title">Dhruv Patil</div>
+              <div class="author-role">Cloud & DevOps Engineer</div>
+            </div>
+            <p class="author-bio">
+              DeployHub implements automated continuous delivery for a two-tier containerized stack on AWS EC2, configured with Docker Compose orchestration and Jenkins pipeline automation.
+            </p>
+          </div>
+
+          <div class="meta-table">
+            <div class="meta-row">
+              <span class="meta-label">Repository</span>
+              <a href="https://github.com/dhruuv-patil/DeployHub" target="_blank" rel="noopener noreferrer" class="meta-value footer-link mono">dhruuv-patil/DeployHub</a>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Hosting Platform</span>
+              <span class="meta-value mono">AWS EC2 (Ubuntu 22.04)</span>
+            </div>
+            <div class="meta-row">
+              <span class="meta-label">Testing Framework</span>
+              <span class="meta-value mono">Pytest (Automated Suite)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- REST API Specifications -->
+        <div class="panel">
+          <div class="panel-header">
+            <h3 class="panel-title">REST Endpoints</h3>
+            <span class="panel-subtitle mono">Service API</span>
+          </div>
+
+          <table class="api-table mono">
+            <tbody>
+              <tr>
+                <td><span class="method-tag">GET</span></td>
+                <td class="path-text">/health</td>
+                <td style="text-align: right; color: var(--text-muted);">200 OK</td>
+              </tr>
+              <tr>
+                <td><span class="method-tag">GET</span></td>
+                <td class="path-text">/api/messages</td>
+                <td style="text-align: right; color: var(--text-muted);">JSON List</td>
+              </tr>
+              <tr>
+                <td><span class="method-tag">POST</span></td>
+                <td class="path-text">/submit</td>
+                <td style="text-align: right; color: var(--text-muted);">Create Log</td>
+              </tr>
+              <tr>
+                <td><span class="method-tag">GET</span></td>
+                <td class="path-text">/api/info</td>
+                <td style="text-align: right; color: var(--text-muted);">Metadata</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </aside>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#messageForm").on("submit", function(event) {
-                event.preventDefault();
-                let messageInput = $("input[name='new_message']");
-                let message = messageInput.val().trim();
+    <!-- Schematics Section -->
+    <section class="schematic-section">
+      <div class="tab-controls">
+        <button class="tab-control-btn active" data-tab="tab-infra">Cloud Infrastructure</button>
+        <button class="tab-control-btn" data-tab="tab-workflow">CI/CD Pipeline Flow</button>
+      </div>
 
-                if (message === "") {
-                    alert("Message cannot be empty!");
-                    return;
-                }
+      <div class="schematic-panel active" id="tab-infra">
+        <img src="{{ url_for('static', filename='images/Infrastructure.png') }}" alt="AWS EC2 Infrastructure Schematic" class="schematic-media">
+      </div>
 
-                $.ajax({
-                    url: "/submit",
-                    type: "POST",
-                    data: { new_message: message },
-                    success: function(response) {
-                        if (response && response.message) {
-                            $(".messages").append("<p>" + response.message + "</p>");
-                            messageInput.val("");
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error("AJAX Error:", status, error);
-                    }
-                });
-            });
-        });
-    </script>
+      <div class="schematic-panel" id="tab-workflow">
+        <img src="{{ url_for('static', filename='images/project_workflow.png') }}" alt="Continuous Delivery Workflow Schematic" class="schematic-media">
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <span>DeployHub — Continuous Delivery for Cloud Applications</span>
+      <span>Designed by <a href="https://github.com/dhruuv-patil" target="_blank" rel="noopener noreferrer" class="footer-link">Dhruv Patil</a></span>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
