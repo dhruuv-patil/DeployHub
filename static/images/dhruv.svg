@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1527;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a2744;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d2ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a7bd5;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38ef7d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#11998e;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="94" fill="url(#bgGrad)" stroke="url(#glowGrad)" stroke-width="4" filter="url(#glow)"/>
+
+  <!-- Tech Hex Ring / Circuit Elements -->
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#253858" stroke-width="2" stroke-dasharray="8 6"/>
+
+  <!-- Cloud / Server Backdrop Motif -->
+  <path d="M72 135 L128 135 C136 135 142 129 142 121 C142 114 137 108 130 107 C129 95 119 86 107 86 C102 86 98 88 94 91 C90 85 83 81 75 81 C64 81 55 90 55 101 C49 103 45 108 45 115 C45 123 51 129 59 129 L72 129 Z" 
+        fill="rgba(58, 123, 213, 0.15)" stroke="url(#glowGrad)" stroke-width="2"/>
+
+  <!-- Developer Silhouette / Monogram -->
+  <circle cx="100" cy="76" r="28" fill="url(#glowGrad)"/>
+  <path d="M56 142 C56 114 74 108 100 108 C126 108 144 114 144 142 Z" fill="url(#glowGrad)"/>
+
+  <!-- Initials DP Badge -->
+  <rect x="76" y="62" width="48" height="28" rx="8" fill="#0d1527" stroke="url(#glowGrad)" stroke-width="2"/>
+  <text x="100" y="82" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="800" fill="#00d2ff" text-anchor="middle" letter-spacing="1.5">DP</text>
+
+  <!-- Active Status Ping -->
+  <circle cx="152" cy="150" r="10" fill="#10b981" stroke="#0a0e17" stroke-width="3"/>
+</svg>
