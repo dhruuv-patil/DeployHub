@@ -1,0 +1,17 @@
+.git
+.gitignore
+.github
+diagrams
+tests
+pytest.ini
+__pycache__
+*.py[cod]
+.pytest_cache
+.coverage
+htmlcov
+venv
+.venv
+.env
+.env.*
+README.md
+.DS_Store
